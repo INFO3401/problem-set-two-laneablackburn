@@ -1,0 +1,82 @@
+1. Assume all of the directories below are valid directories (e.g., they exist and we have access to them). What would the following print out?     
+
+cd /usrs/INFO3401/../homework/./problem1
+pwd
+
+The following would print out the things within the working dictionary which is the problem1 dictionary.
+
+2. What set of commands would you use to achieve the following:
+You've found yourself in a situation where your python program is trying to parse files in a directory and is throwing an error. You think it might be a permissions issue (i.e., you don't have permission to access the files in that directory) and need to verify the permissions on all files in that directory. The directory is in your home directory under the "datasets/activedata" directory. Make no assumptions about what directory you are currently working in. 
+
+
+cd ~ 
+cd datasets
+ls -l -activedata 
+pwd 
+ 
+
+3. Briefly describe what the following set of commands would achieve. What process would happen and what would be printed to the command line?
+
+
+cd ~
+mkdir ./problem_set_1
+touch submission.txt
+cd ..
+pwd
+
+This is going to take you to the home directory, then I am making a dictionary called problem_set_1, touch is making a txt file called submission, then my dictionary is getting changed to the parent dictionary and then the  terminal is printing the working dictionary.
+
+
+4. What set of commands would you use to achieve the following:
+Copy a document called config.txt from your home directory to the root directory. Then, create a new directory in the root called preferences. Within preferences, copy prefs.txt from a matching directory called preferences in your home directory. Finally, determine that the start and end of the config.txt document in both root and home match.
+
+cp ~/config.txt
+cd /
+mkdir preferences 
+cd preferences 
+cp prefs.txt ~/prefS.txt 
+head config.txt
+less config.txt
+
+
+5. You have accidentally moved a file (~/Documents/datafile.csv) to your current directory rather than copying it. What command did you use to do that? What command should you have used to do that? What command might you use to undo it? 
+
+
+mv datafile.csv Documents 
+cp datafile.csv ~/Documents 
+rm datafile.csv Documents 
+
+
+6. Download and unzip asciify-master.zip from Canvas. Then, navigate to the directory and use the command line to run asciify.py. What does this script do? Include a screenshot of your results. 
+
+The script makes a photo of an animation, I think it is a cat. 
+
+
+7. Install the Delorean Python package. What command did you use? Then, from the command line, launch Python. Use it to execute the following commands: 
+
+from delorean import Delorean
+EST = "US/Eastern"
+d = Delorean(timezone=EST)
+print(d)
+What prints to the command line? 
+ 
+Delorean(datetime=datetime.datetime(2020, 1, 29, 12, 12, 29, 673025), timezone='US/Eastern')
+
+
+8. We can scrape webpage content or download collections of data files using wget. NASA, the USDA, and the NCBI all recommend using wget to download data from their repositories because it is faster and allows you to download data in bulk. We'll experiment with that on a smaller scale: use the command line to download data on the World Bank's budgetary expenditures at https://finances.worldbank.org/api/views/yu93-ayrw/rows.csv?accessType=DOWNLOAD (Links to an external site.) Links to an external site.. What command did you use? Make sure to include this file as part of your submission. 
+
+wget https://finances.worldbank.org/api/views/yu93-ayrw/rows.csv?accessType=DOWNLOAD
+
+
+
+9. The above budgetary data contains both individual items and aggregated totals across different sectors. Let's distill the data down to different aggregated totals. In this dataset, you can use the keyword "Total" to identify only those rows containing aggregate budget items. Use the command line to identify these rows. What command did you use? How many rows did this find (hint: the -c option can be helpful here)?
+
+grep Total rows.csv?accessType=DOWNLOAD
+grep Total rows.csv?accessType=DOWNLOAD-c 
+33 rows 
+
+
+10. Now, print the lines containing the word "Total" to a file to "distilledExpenditures.csv". What command did you use? Include this file as part of your submission. 
+
+laneablackburn-2:Desktop laneablackburn$ cat rows.csv?accessType=DOWNLOAD > distilledExpenditures.csv 
+
